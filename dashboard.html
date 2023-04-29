@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CashflowMate Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="assests/icon/titleicon.png">
+  <link rel="stylesheet" href="Css/dashboard.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+          <img src="assests/logo/logo.png" alt="logo" />
+          <h2>CFlow<spabn class="danger">Mate</span></h2>
+        </div>
+        <div class="close" id="cose-btn">
+          <i class="material-icons">close</i>
+        </div>
+      </div>
+      <div class="sidebar">
+        <a href="#">
+          <span class="material-icons">grid_view</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="#" class="active">
+          <span class="material-icons">person_outline</span>
+          <h3>Expenses</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons">
+            point_of_sale
+          </span>
+          <h3>Transactions</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons">
+            summarize
+          </span>
+          <h3>Reports</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons">business</span>
+          <h3>Budget</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons">mail</span>
+          <h3>Messages</h3>
+          <span class="message_count">69</span>
+        </a>
+
+        <a href="#">
+          <span class="material-icons">settings</span>
+          <h3>Settings</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons">logout</span>
+          <h3>Log Out</h3>
+        </a>
+      </div>
+    </aside>
+
+    <!---Dashboard--->
+
+    <main>
+      <h1>Dashboard</h1>
+
+      <div class="date">
+        <input type="date">
+      </div>
+
+      <div class="insight">
+        <div class="budget">
+          <span class="material-icons">
+            analytics
+          </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Budget</h3>
+              <h1>Rs: 100000</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36" />
+              </svg>
+              <div class="number">
+                <p>81%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!---End of Budget--->
+        <div class="expenses">
+          <span class="material-icons">
+            bar_chart
+          </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Expenses</h3>
+              <h1>Rs: 75000</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36" />
+              </svg>
+              <div class="number">
+                <p>62%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!---End of Expenses--->
+        <div class="income">
+          <span class="material-icons">
+            stacked_line_chart
+          </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Incomes</h3>
+              <h1>Rs: 45000</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36" />
+              </svg>
+              <div class="number">
+                <p>44%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Last 24 Hours</small>
+        </div>
+        <!---End of Income--->
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>

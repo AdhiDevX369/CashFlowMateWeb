@@ -1,0 +1,197 @@
+/* Set up basic styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f7f7f7;
+  }
+  
+  header {
+    background-color: #1f1f1f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 1rem;
+  }
+  
+  nav ul li:first-child {
+    margin-left: 0;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  nav a:hover {
+    background-color: #333;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="date"],
+  input[type="number"],
+  select,
+  input[type="text"] {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' d='M4.4 4.5l3.1 3.5 3.1-3.5H4.4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.5rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  button:hover {
+    background-color: #1f1f1f;
+  }
+  
+  /* Expense card styles */
+  
+  #expense-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .expense-card {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 1rem);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .expense-date {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .expense-description {
+    font-size: 1rem;
+    margin-bottom
+    : 0.5rem;
+}
+
+.expense-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.expense-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  background-color: #f7f7f7;
+  color: #333;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+} 
+
+.expense-delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #ff4c4c;
+  font-size: 1.2rem;
+  cursor: pointer;
+} 
+
+.expense-delete:hover {
+  color: #d33;
+} 
+
+.expense-edit {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+} 
+
+.expense-edit:hover {
+  color: #1f1f1f;
+} 
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+  main {
+    margin: 1rem;
+  }
+
+  #expense-cards {
+    justify-content: center;
+  }
+
+  .expense-card {
+    width: 100%;
+  }
+}

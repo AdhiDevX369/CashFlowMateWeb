@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expenses - CashFlowMate</title>
+    <link rel="stylesheet" type="text/css" href="./Css/style.css" />
+
+    <!-- icon -->
+    <link rel="icon" href="/assests/icon/titleicon.png" type="cashflowmateicon" />
+  </head>
+  <body>
+    <header>
+      <h1>CashFlowMate</h1>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="budget.html">Budgets</a></li>
+          <li><a href="transactions.html">Transactions</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Expenses</h2>
+      <form id="expense-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+        <label for="amount">Amount:</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          min="0"
+          step="0.01"
+          required
+        />
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="Groceries">Groceries</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Other">Other</option>
+        </select>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" maxlength="50" />
+        <button type="submit" id="add-expense">Add Expense</button>
+        <button type="button" id="clear-form">Clear Form</button>
+      </form>
+      <section id="expense-cards">
+        <!-- Expense cards will be dynamically added here using JavaScript -->
+       
+      </section>
+    </main>
+    <script src="./Js/app.js"></script>
+  </body>
+</html>
