@@ -9,9 +9,9 @@
 :root {
   --color-background: #0d0d0d;
   --color-text: #f2f2f2;
-  --color-primary: #bf7960;
-  --color-secondary: #f2b33d;
-  --color-accent: #f2a444;
+  --color-primary: #ff7782;
+  --color-secondary:  #7380ec;
+  --color-accent: #ffbb55;
 
   --font-primary: "Montserrat", sans-serif;
   --font-secondary: "Lora", serif;
