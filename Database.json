@@ -1,0 +1,74 @@
+{
+    "users": {
+        "user_id": {
+            "expenses": {
+                "expense_id": {
+                    "date": "2023-05-02",
+                    "amount": 50.00,
+                    "category": "Groceries",
+                    "description": "Weekly grocery shopping"
+                },
+                "expense_id": {
+                    "date": "2023-05-07",
+                    "amount": 30.00,
+                    "category": "Transportation",
+                    "description": "Bus fare"
+                },
+            },
+            "budgets": {
+                "budget_id": {
+                    "category": "Food",
+                    "limit": 200.00
+                },
+                "budget_id": {
+                    "category": "Entertainment",
+                    "limit": 100.00
+                },
+            },
+            "income": {
+                "income_id": {
+                    "date": "2023-05-01",
+                    "amount": 5000.00,
+                    "category": "Salary",
+                    "description": "Monthly salary deposit"
+                },
+                "income_id": {
+                    "date": "2023-05-15",
+                    "amount": 2000.00,
+                    "category": "Freelance",
+                    "description": "Client payment"
+                },
+            },
+            "transactions": {
+                "transaction_id": {
+                    "type": "Expense",
+                    "date": "2023-05-02",
+                    "amount": 50.00,
+                    "category": "Groceries",
+                    "description": "Weekly grocery shopping"
+                },
+                "transaction_id": {
+                    "type": "Expense",
+                    "date": "2023-05-07",
+                    "amount": 30.00,
+                    "category": "Transportation",
+                    "description": "Bus fare"
+                },
+                "transaction_id": {
+                    "type": "Income",
+                    "date": "2023-05-01",
+                    "amount": 5000.00,
+                    "category": "Salary",
+                    "description": "Monthly salary deposit"
+                },
+                "transaction_id": {
+                    "type": "Income",
+                    "date": "2023-05-15",
+                    "amount": 2000.00,
+                    "category": "Freelance",
+                    "description": "Client payment"
+                }
+            }
+        }
+    }
+}
