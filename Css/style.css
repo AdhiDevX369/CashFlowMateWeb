@@ -4,9 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
-body {
+body {  
   background: #ffffff;
   font-family: "Lato", sans-serif;
 }
@@ -63,11 +64,11 @@ body {
 .TextSection {
   position: relative;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  padding: 10px 32px;
 }
 
 .TextSection .Text {

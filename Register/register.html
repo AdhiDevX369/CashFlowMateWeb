@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CashFlowMate | Register</title>
+  <!-- icon -->
+  <link rel="icon" href="/assets/icon/titleicon.png" type="cashflowmateicon" />
+  <!-- stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <!-- FontAwesime CDN -->
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <img class="wave" src="img/wave.png">
+  <div class="container">
+    <div class="img">
+      <img src="img/bg.svg">
+    </div>
+    <div class="register-content">
+      <form id="registerForm">
+        <img src="img/avatar.svg">
+        <h2 class="title">Register</h2>
+        <div class="input-div">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <h5>Email</h5>
+            <input type="email" class="input" id="email" required>
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i"> 
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <h5>Password</h5>
+            <input type="password" class="input" id="password" required>
+          </div>
+        </div>
+        <div class="input-div">
+          <div class="i"> 
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <h5>Confirm Password</h5>
+            <input type="password" class="input" id="confirmPassword" required>
+          </div>
+        </div>
+        <a href="../Login.Form/Login.html" id="Fpassword" >Already have an account?</a>
+        <input type="submit" class="btn" value="Register">
+      </form>
+    </div>
+  </div>  
+  <script type="text/javascript" src="../Register/js/main.js"></script>
+  <script type="module" src="../firebase/config.js"></script>
+  <script type="module" src="../firebase/createauth.js"></script>
+</body>
+</html>
