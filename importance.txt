@@ -1,0 +1,136 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+// Your Firebase configuration
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyCwQfdmvUyJiyGo3nHHRrwX00CWnaOf3Oo",
+    authDomain: "cashflowmate-10b84.firebaseapp.com",
+    databaseURL: "https://cashflowmate-10b84-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "cashflowmate-10b84",
+    storageBucket: "cashflowmate-10b84.appspot.com",
+    messagingSenderId: "947054792095",
+    appId: "1:947054792095:web:41089e6e130d68e14141aa",
+    measurementId: "G-HTFBT34F33"
+  };
+
+
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the database
+const database = getDatabase(app);
+
+// Budget List container
+const budgetListContainer = document.getElementById('budget-list');
+
+// Expense List container
+const expenseListContainer = document.getElementById('list');
+
+// Set Budget button
+const setBudgetButton = document.getElementById('total-amount-button');
+setBudgetButton.addEventListener('click', () => {
+  const totalAmountInput = document.getElementById('total-amount');
+  const startDateInput = document.getElementById('start-date');
+  const endDateInput = document.getElementById('end-date');
+
+  const totalAmount = totalAmountInput.value;
+  const startDate = startDateInput.value;
+  const endDate = endDateInput.value;
+
+  // Validate input
+  if (!totalAmount || totalAmount <= 0) {
+    showError('budget-error');
+    return;
+  }
+
+  // Hide error message
+  hideError('budget-error');
+
+  // Save budget to Firebase
+  set(ref(database, 'budget'), {
+    totalAmount,
+    startDate,
+    endDate
+  });
+});
+
+// Check Amount button
+const checkAmountButton = document.getElementById('check-amount');
+checkAmountButton.addEventListener('click', () => {
+  const productTitleInput = document.getElementById('product-title');
+  const userAmountInput = document.getElementById('user-amount');
+
+  const productTitle = productTitleInput.value;
+  const userAmount = userAmountInput.value;
+
+  // Validate input
+  if (!productTitle || !userAmount) {
+    showError('product-title-error');
+    return;
+  }
+
+  // Hide error message
+  hideError('product-title-error');
+
+  // Save expense to Firebase
+  const expenseRef = push(ref(database, 'expenses'));
+  set(expenseRef, {
+    title: productTitle,
+    amount: userAmount
+  });
+});
+
+// Listen for changes in the budget and update UI
+onValue(ref(database, 'budget'), (snapshot) => {
+  const budget = snapshot.val();
+
+  if (budget) {
+    const { totalAmount, startDate, endDate } = budget;
+    const budgetDuration = `Budget duration: ${startDate} - ${endDate}`;
+
+    document.getElementById('amount').textContent = totalAmount;
+    document.getElementById('budget-duration').textContent = budgetDuration;
+  } else {
+    // Reset values if budget is not set
+    document.getElementById('amount').textContent = '0';
+    document.getElementById('budget-duration').textContent = '';
+  }
+});
+
+// Listen for changes in expenses and update UI
+onValue(ref(database, 'expenses'), (snapshot) => {
+  const expenses = snapshot.val();
+  let totalExpense = 0;
+
+  expenseListContainer.innerHTML = '';
+
+  if (expenses) {
+    Object.keys(expenses).forEach((expenseId) => {
+      const { title, amount } = expenses[expenseId];
+
+      const listItem = document.createElement('div');
+      listItem.innerHTML = `<p>${title}</p><p>${amount}</p>`;
+      expenseListContainer.appendChild(listItem);
+
+      totalExpense += parseInt(amount, 10);
+    });
+  }
+
+  document.getElementById('expenditure-value').textContent = totalExpense;
+  document.getElementById('balance-amount').textContent =
+    parseInt(document.getElementById('amount').textContent, 10) - totalExpense;
+});
+
+// Function to show error message
+function showError(errorId) {
+  const errorElement = document.getElementById(errorId);
+  errorElement.classList.remove('hide');
+}
+
+// Function to hide error message
+function hideError(errorId) {
+  const errorElement = document.getElementById(errorId);
+  errorElement.classList.add('hide');
+}
