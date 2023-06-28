@@ -19,6 +19,7 @@
     --color-bg: #3C8775;
     --color-bg1: #FFC47A;
     --color-bg2: #016342;
+    --card: #F2A74A;
   
   
   --container-width-lg: 80%;
@@ -29,12 +30,101 @@
   }
   
   body {
-    background-color: var(--color-bg2);
+    background-color: var(--color-success);
+    font-size: .8125rem;
+    font-weight: 400;
+    line-height: 1.5385;
+    color:var(--color-danger);
+    text-align: left;
   }
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-white);
-    margin-bottom: 1em;
-    margin-top: 10em;
-  }
+  .mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--card);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .1875rem
+}
+
+.card-img-actions {
+    position: relative
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    text-align: center
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 17px
+}
+
+.invoice-color {
+    color: red !important
+}
+
+.card-header {
+    padding: .9375rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .02);
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
+}
+
+a {
+    text-decoration: none !important
+}
+
+.btn-light {
+    color: #333;
+    background-color: #fafafa;
+    border-color: #ddd
+}
+
+.header-elements-inline {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+@media (min-width: 768px) {
+    .wmin-md-400 {
+        min-width: 400px !important
+    }
+}
+
+.btn-primary {
+    color: #FFECD8;
+    background-color: #01432D;
+}
+
+.btn-labeled>b {
+    position: absolute;
+    top: -1px;
+    background-color: #01432D;
+    display: block;
+    line-height: 1;
+    padding: .62503rem;
+    border:none;
+    outline: #01432D;
+}

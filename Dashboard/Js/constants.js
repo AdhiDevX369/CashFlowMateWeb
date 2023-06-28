@@ -1,20 +1,20 @@
 const UPDATE_DATA = [
     {
-      imgSrc: "./images/profile-2.jpg",
+      imgSrc: "/assests/img/user/user3.jpg",
       profileName: "Mike Tyson",
-      message: "received his order of Night lion tech GPS drone.",
-      updatedTime: "2 Minutes Ago",
+      message: "updated expenses of building. ",
+      updatedTime: "3 Days Ago",
     },
     {
-      imgSrc: "./images/profile-3.jpg",
-      profileName: "Diana Ayi",
-      message: "declined her order of 2 DJI Air 2S.",
-      updatedTime: "5 Minutes Ago",
+      imgSrc: "/assests/img/user/user2.jpg",
+      profileName: "Damian Anul",
+      message: "Updated Expenses of Payment.",
+      updatedTime: "5 Days Ago",
     },
     {
-      imgSrc: "./images/profile-4.jpg",
-      profileName: "Mandy Roy",
-      message: "received his order of LARVENDER KF102 Drone.",
-      updatedTime: "6 Minutes Ago",
+      imgSrc: "/assests/img/user/client.jpg",
+      profileName: "Srenali Maria",
+      message: "Add Expenses of Entertainment.",
+      updatedTime: "6 Days Ago",
     },
   ];

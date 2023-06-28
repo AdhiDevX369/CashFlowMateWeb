@@ -3,9 +3,9 @@
 
 /* ROOT VARIABLES */
 :root {
-  --color-primary: #7380ec;
-  --color-danger: #ff7782;
-  --color-success: #41f1b6;
+  --color-primary: #3C8775;
+  --color-danger: #F2A74A;
+  --color-success: #01432D;
   --color-warning: #ffbb55;
   --color-white: #fff;
   --color-info-dark: #7d8da1;
@@ -252,7 +252,7 @@ main .insights > div span {
 main .insights > div.expenses span {
   background: var(--color-danger);
 }
-main .insights > div.income span {
+main .insights > div.balance span {
   background: var(--color-success);
 }
 main .insights > div .middle {
@@ -311,13 +311,13 @@ main .insights small {
 /* END INSIGHTS */
 
 /* START RECENT ORDERS */
-main .recent-orders {
+main .expenses-list {
   margin-top: 2rem;
 }
-main .recent-orders h2 {
+main .expenses-list h2 {
   margin-bottom: 0.8rem;
 }
-main .recent-orders table {
+main .expenses-list table {
   background: var(--color-white);
   width: 100%;
   border-radius: var(--card-border-radius);
@@ -326,7 +326,7 @@ main .recent-orders table {
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
 }
-main .recent-orders table:hover {
+main .expenses-list table:hover {
   cursor: pointer;
   box-shadow: none;
 }
@@ -338,7 +338,7 @@ main table tbody td {
 main table tbody tr:last-child td {
   border: none;
 }
-main .recent-orders a {
+main .expenses-list a {
   text-align: center;
   display: block;
   margin: 1rem auto;
@@ -414,13 +414,13 @@ main .recent-orders a {
 /* END RECENT UPDATES */
 
 /* START SALES ANALYTICS */
-.right .sales-analytics {
+.right .analytics {
   margin-top: 2rem;
 }
-.right .sales-analytics h2 {
+.right .analytics h2 {
   margin-bottom: 0.8rem;
 }
-.right .sales-analytics .item {
+.right .analytics .item {
   background: var(--color-white);
   display: flex;
   align-items: center;
@@ -431,31 +431,31 @@ main .recent-orders a {
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
 }
-.right .sales-analytics .item:hover {
+.right .analytics .item:hover {
   cursor: pointer;
   box-shadow: none;
 }
-.right .sales-analytics .item .right {
+.right .analytics .item .right {
   display: flex;
   justify-content: space-between;
   align-items: start;
   margin: 0;
   width: 100%;
 }
-.right .sales-analytics .item .icon {
+.right .analytics .item .icon {
   padding: 0.6rem;
   color: var(--color-white);
   border-radius: 50%;
   background: var(--color-primary);
   display: flex;
 }
-.right .sales-analytics .item.offline .icon {
+.right .analytics .item.offline .icon {
   background: var(--color-danger);
 }
-.right .sales-analytics .item.customers .icon {
+.right .analytics .item.customers .icon {
   background: var(--color-success);
 }
-.right .sales-analytics .add-product {
+.right .analytics .add-product {
   background: transparent;
   border: 2px dashed var(--color-primary);
   color: var(--color-primary);
@@ -463,16 +463,16 @@ main .recent-orders a {
   align-items: center;
   justify-content: center;
 }
-.right .sales-analytics .add-product:hover {
+.right .analytics .add-product:hover {
   background: var(--color-primary);
   color: white;
 }
-.right .sales-analytics .add-product div {
+.right .analytics .add-product div {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
-.right .sales-analytics .add-product h3 {
+.right .analytics .add-product h3 {
   font-weight: 600;
 }
 /* END SALES ANALYTICS */
@@ -502,22 +502,22 @@ main .recent-orders a {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  main .recent-orders {
+  main .expenses-list {
     width: 94%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 2rem 0 0 8.8rem;
   }
-  main .recent-orders table {
+  main .expenses-list table {
     width: 83vw;
   }
-  main .recent-orders table thead tr th:first-child,
-  main .recent-orders table thead tr th:last-child {
+  main .expenses-list table thead tr th:first-child,
+  main .expenses-list table thead tr th:last-child {
     display: none;
   }
-  main .recent-orders table tbody tr td:first-child,
-  main .recent-orders table tbody tr td:last-child {
+  main .expenses-list table tbody tr td:first-child,
+  main .expenses-list table tbody tr td:last-child {
     display: none;
   }
 }
@@ -570,12 +570,12 @@ main .recent-orders a {
     margin-top: 8rem;
     padding: 0 1rem;
   }
-  main .recent-orders {
+  main .expenses-list {
     position: relative;
     margin: 3rem 0 0 0;
     width: 100%;
   }
-  main .recent-orders table {
+  main .expenses-list table {
     width: 100%;
     margin: 0;
   }

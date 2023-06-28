@@ -1,7 +1,7 @@
 // Executes when document is loaded
 document.addEventListener("DOMContentLoaded", (ev) => {
     // Recent Orders Data
-    document.getElementById("recent-orders--table").appendChild(buildTableBody());
+    document.getElementById("expenses--table").appendChild(buildTableBody());
   
     // Updates Data
     document
@@ -10,23 +10,23 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       .appendChild(buildUpdatesList());
   
     // Sales Analytics
-    const salesAnalytics = document.getElementById("analytics");
-    buildSalesAnalytics(salesAnalytics);
+    const analytics = document.getElementById("analytics");
+    buildAnalytics(analytics);
   });
   
   // Document Builder
   const buildTableBody = () => {
-    const recentOrderData = RECENT_ORDER_DATA;
+    const expenseData = EXPENSES;
   
     const tbody = document.createElement("tbody");
   
     let bodyContent = "";
-    for (const row of recentOrderData) {
+    for (const row of expenseData) {
       bodyContent += `
         <tr>
-          <td>${row.productName}</td>
-          <td>${row.productNumber}</td>
-          <td>${row.payment}</td>
+          <td>${row.expensesTitle}</td>
+          <td>${row.expensesAmount}</td>
+          <td>${row.expensesType}</td>
           <td class="${row.statusColor}">${row.status}</td>
           <td class="primary">Details</td>
         </tr>
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", (ev) => {
     return div;
   };
   
-  const buildSalesAnalytics = (element) => {
-    const salesAnalyticsData = SALES_ANALYTICS_DATA;
+  const buildAnalytics = (element) => {
+    const analyticsData = ANALYTICS_DATA;
   
-    for (const analytic of salesAnalyticsData) {
+    for (const analytic of analyticsData) {
       const item = document.createElement("div");
       item.classList.add("item");
       item.classList.add(analytic.itemClass);
