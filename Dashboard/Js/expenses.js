@@ -39,13 +39,13 @@ const EXPENSES = [
       expensesAmount: "Rs: 150000",
       expensesType: "Work",
       status: "Pending",
-      statusColor: "warning",
+      statusColor: "danger",
     },
     {
       expensesTitle: "Others",
       expensesAmount: "Rs: 25000",
       expensesType: "Work",
       status: "Pending",
-      statusColor: "warning",
+      statusColor: "danger",
     },
   ];
