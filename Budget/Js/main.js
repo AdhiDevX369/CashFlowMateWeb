@@ -25,11 +25,7 @@ totalAmountButton.addEventListener("click", () => {
     amount.innerHTML = tempAmount;
     //Set Balance
     balanceValue.innerText = tempAmount - expenditureValue.innerText;
-    //Set Duration
-    const startDate = new Date(document.getElementById("start-date").value);
-    const endDate = new Date(document.getElementById("end-date").value);
-    const diffInDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-    duration.innerText = diffInDays;
+    
     //Clear Input Boxes
     totalAmount.value = "";
     document.getElementById("start-date").value = "";
