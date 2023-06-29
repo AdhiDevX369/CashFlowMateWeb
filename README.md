@@ -19,8 +19,8 @@
 
   <h2>Installation</h2>
   <ol>
-    <li>Clone the repository: <code>git clone [https://github.com/your-username/cashflowmat](https://github.com/AdithyaBandara/CashFlowMateWeb)e.git</code></li>
-    <li>Navigate to the project directory: <code>cd cashflowmate</code></li>
+    <li>Clone the repository: <code>git clone https://github.com/AdithyaBandara/CashFlowMateWeb.git</code></li>
+    <li>Navigate to the project directory: <code>cd CashFlowMateWeb</code></li>
     <li>Open the project in your preferred code editor.</li>
     <li>Install any necessary dependencies.</li>
     <li>Set up a Firebase project and configure the necessary Firebase credentials.</li>
