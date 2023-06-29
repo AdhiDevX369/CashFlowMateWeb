@@ -58,8 +58,33 @@ const disableButtons = (bool) => {
   });
 };
 
+// Get a reference to the "totalExpenses" location in the database
+const totalExpensesRef = ref(database, "totalExpenses");
+
+// Function To Create List
+const listCreator = (key, expenseName, expenseValue) => {
+  let sublistContent = document.createElement("div");
+  sublistContent.classList.add("sublist-content", "flex-space");
+  sublistContent.innerHTML = `<p class="product">${expenseName}</p><p class="amount">${expenseValue}</p>`;
+  let editButton = document.createElement("button");
+  editButton.classList.add("fa-solid", "fa-pen-to-square", "edit");
+  editButton.style.fontSize = "1.2em";
+  editButton.addEventListener("click", () => {
+    modifyElement(key, editButton, true);
+  });
+  let deleteButton = document.createElement("button");
+  deleteButton.classList.add("fa-solid", "fa-trash-can", "delete");
+  deleteButton.style.fontSize = "1.2em";
+  deleteButton.addEventListener("click", () => {
+    modifyElement(key, deleteButton);
+  });
+  sublistContent.appendChild(editButton);
+  sublistContent.appendChild(deleteButton);
+  list.appendChild(sublistContent);
+};
+
 // Function To Modify List Elements
-const modifyElement = (element, key, edit = false) => {
+const modifyElement = (key, element, edit = false) => {
   let parentDiv = element.parentElement;
   let currentBalance = balanceValue.innerText;
   let currentExpense = expenditureValue.innerText;
@@ -75,32 +100,12 @@ const modifyElement = (element, key, edit = false) => {
     parseInt(currentExpense) - parseInt(parentAmount);
   parentDiv.remove();
 
-  // Remove expense from Realtime Database
-  const expenseRef = ref(database, `expenses/${key}`);
-  set(expenseRef, null);
-};
+  // Remove the expense from the database
+  remove(ref(database, `expenses/${key}`));
 
-// Function To Create List
-const listCreator = (key, expenseName, expenseValue) => {
-  let sublistContent = document.createElement("div");
-  sublistContent.classList.add("sublist-content", "flex-space");
-  list.appendChild(sublistContent);
-  sublistContent.innerHTML = `<p class="product">${expenseName}</p><p class="amount">${expenseValue}</p>`;
-  let editButton = document.createElement("button");
-  editButton.classList.add("fa-solid", "fa-pen-to-square", "edit");
-  editButton.style.fontSize = "1.2em";
-  editButton.addEventListener("click", () => {
-    modifyElement(editButton, key, true);
-  });
-  let deleteButton = document.createElement("button");
-  deleteButton.classList.add("fa-solid", "fa-trash-can", "delete");
-  deleteButton.style.fontSize = "1.2em";
-  deleteButton.addEventListener("click", () => {
-    modifyElement(deleteButton, key);
-  });
-  sublistContent.appendChild(editButton);
-  sublistContent.appendChild(deleteButton);
-  document.getElementById("list").appendChild(sublistContent);
+  // Update total expenses in the database
+  const totalExpenses = parseInt(expenditureValue.innerText);
+  set(totalExpensesRef, totalExpenses);
 };
 
 // Function To Add Expenses
@@ -121,13 +126,15 @@ checkAmountButton.addEventListener("click", () => {
   const totalBalance = tempAmount - sum;
   balanceValue.innerText = totalBalance;
   // Create list
-  listCreator(productTitle.value, userAmount.value);
-  // Save expense in Realtime Database
   const newExpenseRef = push(ref(database, "expenses"));
+  const newExpenseKey = newExpenseRef.key;
   set(newExpenseRef, {
     name: productTitle.value,
-    amount: expenditure,
+    amount: expenditure
   });
+  listCreator(newExpenseKey, productTitle.value, userAmount.value);
+  // Update total expenses in the database
+  set(totalExpensesRef, sum);
   // Empty inputs
   productTitle.value = "";
   userAmount.value = "";
@@ -140,14 +147,21 @@ onValue(ref(database, "budget"), (snapshot) => {
   balanceValue.innerText = tempAmount - expenditureValue.innerText;
 });
 
-// Listen for changes in the expenses from Realtime Database
+
+// Listen for changes in expenditure from Realtime Database
 onValue(ref(database, "expenses"), (snapshot) => {
   const expenses = snapshot.val();
   list.innerHTML = "";
   if (expenses) {
-    Object.keys(expenses).forEach((key) => {
-      const expense = expenses[key];
+    Object.entries(expenses).forEach(([key, expense]) => {
       listCreator(key, expense.name, expense.amount);
     });
   }
+});
+
+// Listen for changes in totalExpenses from Realtime Database
+onValue(ref(database, "totalExpenses"), (snapshot) => {
+  const totalExpenses = snapshot.val();
+  expenditureValue.innerText = totalExpenses || "0";
+  balanceValue.innerText = tempAmount - parseInt(expenditureValue.innerText);
 });
