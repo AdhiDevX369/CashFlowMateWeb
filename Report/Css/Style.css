@@ -9,17 +9,16 @@
   }
   :root {
     --color-primary: #3C8775;
-    --color-success: #01432D;
+    --color-success: #95BFA0;
     --color-warning: #6CAB9E;
-    --color-danger: #F2A74A;
+    --color-danger: #80A689;
     --color-danger-variant: rgba(242, 167, 74, 0.4);
     --color-white: #FFECD8;
     --color-black: #000;
     --color-light: rgba(255, 248, 241, 0.7);
     --color-bg: #3C8775;
-    --color-bg1: #FFC47A;
+    --color-bg1: #C5D9D5;
     --color-bg2: #016342;
-    --card: #F2A74A;
   
   
   --container-width-lg: 80%;
@@ -36,6 +35,14 @@
     line-height: 1.5385;
     color:var(--color-danger);
     text-align: left;
+  }
+
+  #invoice{
+    background-color: white;
+  }
+
+  #invoice li a{
+    color: var(--color-danger);
   }
   .mt-50 {
     margin-top: 50px;
